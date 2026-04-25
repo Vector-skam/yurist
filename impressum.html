@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Impressum - <span id="project-title"></span></title>
+    <style>body{font-family:Arial,sans-serif;margin:40px;line-height:1.6;}</style>
+</head>
+<body>
+    <h1>Impressum</h1>
+    <p><strong>Angaben gemäß § 5 DDG</strong></p>
+
+    <p>
+        Maksym Didukh<br>
+        Johannes-Rieden-Strasse 1<br>
+        56599 Leutesdorf<br>
+        Deutschland
+    </p>
+
+    <p>
+        <strong>Kontakt:</strong><br>
+        E-Mail: didukh.maxim@gmail.com<br>
+        Telefon: +380 99 244 13 24
+    </p>
+
+    <p>Verantwortlich für den Inhalt: Maksym Didukh</p>
+    <p>Dies ist eine private Sammlung von Browser-Spielen. Keine kommerzielle Tätigkeit.</p>
+    <p>Stand: April 2026</p>
+
+    <script>
+        const base = window.location.origin;
+        const title = document.title.trim() || "VECTOR-SKAM Project";
+        document.getElementById('project-title').textContent = title;
+    </script>
+</body>
+</html>

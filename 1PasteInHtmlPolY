@@ -1,0 +1,25 @@
+<div id="legal-loader"></div>
+
+<script>
+  (function() {
+    // Ссылка на ваш файл через CDN для правильной загрузки
+    const url = 'https://cdn.jsdelivr.net/gh/Vector-skam/yurist@main/alert_poly.html';
+
+    fetch(url)
+      .then(response => response.text())
+      .then(data => {
+        // Вставляем содержимое файла в контейнер
+        document.getElementById('legal-loader').innerHTML = data;
+        
+        // Принудительно запускаем скрипты, которые находятся внутри загруженного HTML
+        const scripts = document.getElementById('legal-loader').querySelectorAll('script');
+        scripts.forEach(oldScript => {
+          const newScript = document.createElement("script");
+          Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+          newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+          oldScript.parentNode.replaceChild(newScript, oldScript);
+        });
+      })
+      .catch(err => console.error('Ошибка загрузки юриста:', err));
+  })();
+</script>

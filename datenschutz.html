@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Datenschutzerklärung - <span id="project-title"></span></title>
+    <style>body{font-family:Arial,sans-serif;margin:40px;line-height:1.6;}</style>
+</head>
+<body>
+    <h1>Datenschutzerklärung</h1>
+    <p>Stand: April 2026</p>
+
+    <p>Diese Website verarbeitet <strong>keine personenbezogenen Daten</strong> aktiv. Keine Formulare, kein Login, kein Tracking.</p>
+
+    <p>
+        <strong>Technische Daten (Netlify):</strong><br>
+        Beim Aufruf speichert der Hosting-Dienst automatisch Logfiles (IP, Browser, Zeitpunkt). Diese Daten dienen nur der Sicherheit und Fehlerbehebung und werden schnell gelöscht.
+    </p>
+
+    <p>
+        <strong>Cookies & Speicher:</strong><br>
+        Keine Cookies für Tracking. Nur lokale technische Daten im Browser für das Spiel (z.B. Highscore).
+    </p>
+
+    <p>
+        <strong>Deine Rechte (DSGVO):</strong><br>
+        Auskunft, Berichtigung, Löschung jederzeit möglich. Schreib einfach an didukh.maxim@gmail.com.
+    </p>
+
+    <p>Verantwortlicher: Maksym Didukh, Johannes-Rieden-Strasse 1, 56599 Leutesdorf</p>
+
+    <script>
+        const base = window.location.origin;
+        const title = document.title.trim() || "VECTOR-SKAM Project";
+        document.getElementById('project-title').textContent = title;
+    </script>
+</body>
+</html>

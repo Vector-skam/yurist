@@ -1,0 +1,114 @@
+<div id="legal-overlay-container"></div>
+
+<style>
+  #legal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.9); z-index: 10000;
+    display: flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(8px); font-family: Arial, sans-serif;
+  }
+  #legal-window {
+    background: #fff; width: 95%; max-width: 700px; height: 85vh;
+    border-radius: 15px; display: flex; flex-direction: column; overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  }
+  .legal-tabs {
+    display: flex; background: #f1f1f1; border-bottom: 1px solid #ddd;
+  }
+  .legal-tab {
+    flex: 1; padding: 15px; text-align: center; cursor: pointer;
+    font-weight: bold; color: #666; transition: 0.3s;
+  }
+  .legal-tab.active {
+    background: #fff; color: #000; border-bottom: 3px solid #28a745;
+  }
+  .legal-content-area {
+    flex: 1; overflow-y: auto; padding: 30px; color: #333; line-height: 1.6;
+  }
+  .legal-footer {
+    padding: 20px; border-top: 1px solid #eee; display: flex; gap: 15px; background: #fafafa;
+  }
+  .btn-legal-accept {
+    flex: 2; background: #28a745; color: #fff; border: none; padding: 15px;
+    border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px;
+  }
+  .btn-legal-decline {
+    flex: 1; background: #eee; color: #333; border: none; padding: 15px;
+    border-radius: 8px; cursor: pointer;
+  }
+  .btn-legal-accept:hover { background: #218838; }
+  .legal-section h1 { font-size: 22px; margin-top: 0; }
+  .legal-section p { margin-bottom: 15px; font-size: 14px; }
+  .hidden { display: none; }
+</style>
+
+<script>
+(function() {
+  // ПРОВЕРКА localStorage УДАЛЕНА - окно будет всплывать всегда
+  
+  const projectTitle = document.title || "VECTOR-SKAM Project";
+
+  const modalHtml = `
+    <div id="legal-overlay">
+      <div id="legal-window">
+        <div class="legal-tabs">
+          <div class="legal-tab active" id="tab-imp">Impressum</div>
+          <div class="legal-tab" id="tab-dat">Datenschutz</div>
+        </div>
+        
+        <div class="legal-content-area">
+          <div id="content-imp" class="legal-section">
+            <h1>Impressum</h1>
+            <p><strong>Angaben gemäß § 5 DDG</strong></p>
+            <p>Maksym Didukh<br>Johannes-Rieden-Strasse 1<br>56599 Leutesdorf<br>Deutschland</p>
+            <p><strong>Kontakt:</strong><br>E-Mail: didukh.maxim@gmail.com<br>Telefon: +380 99 244 13 24</p>
+            <p>Verantwortlich für den Inhalt: Maksym Didukh</p>
+            <p>Dies ist eine private Sammlung von Browser-Spielen. Keine kommerzielle Tätigkeit.</p>
+            <p>Stand: April 2026</p>
+            <p><em>Projekt: ${projectTitle}</em></p>
+          </div>
+
+          <div id="content-dat" class="legal-section hidden">
+            <h1>Datenschutzerklärung</h1>
+            <p>Stand: April 2026</p>
+            <p>Diese Website verarbeitet <strong>keine personenbezogenen Daten</strong> aktiv. Keine Formulare, kein Login, kein Tracking.</p>
+            <p><strong>Technische Daten (Netlify):</strong><br>Beim Aufruf speichert der Hosting-Dienst автоматически Logfiles (IP, Browser, Zeitpunkt). Diese Daten dienen nur der Sicherheit und Fehlerbehebung.</p>
+            <p><strong>Cookies & Speicher:</strong><br>Keine Cookies für Tracking. Nur lokale технические данные в браузере для игры (z.B. Highscore).</p>
+            <p><strong>Deine Rechte (DSGVO):</strong><br>Auskunft, Berichtigung, Löschung jederzeit möglich. Schreib einfach an didukh.maxim@gmail.com.</p>
+            <p>Verantwortlicher: Maksym Didukh, Johannes-Rieden-Strasse 1, 56599 Leutesdorf</p>
+          </div>
+        </div>
+
+        <div class="legal-footer">
+          <button class="btn-legal-decline" id="legal-close">Ablehnen</button>
+          <button class="btn-legal-accept" id="legal-ok">Akzeptieren & Spielen</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('legal-overlay-container').innerHTML = modalHtml;
+
+  const tabImp = document.getElementById('tab-imp');
+  const tabDat = document.getElementById('tab-dat');
+  const contImp = document.getElementById('content-imp');
+  const contDat = document.getElementById('content-dat');
+
+  tabImp.onclick = () => {
+    tabImp.classList.add('active'); tabDat.classList.remove('active');
+    contImp.classList.remove('hidden'); contDat.classList.add('hidden');
+  };
+  tabDat.onclick = () => {
+    tabDat.classList.add('active'); tabImp.classList.remove('active');
+    contDat.classList.remove('hidden'); contImp.classList.add('hidden');
+  };
+
+  document.getElementById('legal-ok').onclick = () => {
+    // ЗАПИСЬ В localStorage УДАЛЕНА - просто закрываем окно до следующей перезагрузки
+    document.getElementById('legal-overlay').remove();
+  };
+  document.getElementById('legal-close').onclick = () => {
+    window.location.href = "https://google.com";
+  };
+})();
+</script>

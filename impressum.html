@@ -2,12 +2,17 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Impressum - <span id="project-title"></span></title>
-    <style>body{font-family:Arial,sans-serif;margin:40px;line-height:1.6;}</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum - Maksym Didukh Projects</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; color: #333; max-width: 800px; }
+        h1 { color: #000; border-bottom: 2px solid #eee; }
+        .warning-box { border: 2px solid #ff7b72; padding: 15px; margin: 20px 0; background: #fff5f5; }
+    </style>
 </head>
 <body>
     <h1>Impressum</h1>
-    <p><strong>Angaben gemäß § 5 DDG</strong></p>
+    <p><strong>Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz)</strong></p>
 
     <p>
         Maksym Didukh<br>
@@ -18,17 +23,24 @@
 
     <p>
         <strong>Kontakt:</strong><br>
-        E-Mail: didukh.maxim@gmail.com<br>
+        E-Mail: <a href="mailto:didukh.maxim@gmail.com">didukh.maxim@gmail.com</a><br>
         Telefon: +380 99 244 13 24
     </p>
 
-    <p>Verantwortlich für den Inhalt: Maksym Didukh</p>
-    <p>Dies ist eine private Sammlung von Browser-Spielen. Keine kommerzielle Tätigkeit.</p>
+    <p><strong>Verantwortlich für den Inhalt:</strong> Maksym Didukh</p>
+
+    <div class="warning-box">
+        <strong>Wichtiger Hinweis zu iFrames und externen Inhalten:</strong><br>
+        Auf dieser Webseite (insbesondere wwwwebs.netlify.app) besteht die technische Möglichkeit, externe Inhalte Dritter via iFrame anzuzeigen. Der Betreiber dieser Seite hat keinen Einfluss auf die Inhalte dieser eingebetteten Webseiten. Für illegale, anstößige oder nicht jugendfreie Inhalte (18+) auf diesen Drittseiten sind ausschließlich deren jeweilige Betreiber verantwortlich. Wir distanzieren uns ausdrücklich von solchen Inhalten.
+    </div>
+
+    <p><em>Dies ist eine private Sammlung von Browser-Spielen und interaktiven Anwendungen. Keine kommerzielle Tätigkeit.</em></p>
     <p>Stand: April 2026</p>
+
 
     <script>
         const base = window.location.origin;
-        const title = document.title.trim() || "VECTOR-SKAM Project";
+        const title = document.title.trim() || "Maksym Didukh Project";
         document.getElementById('project-title').textContent = title;
     </script>
 </body>

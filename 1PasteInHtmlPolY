@@ -1,5 +1,5 @@
 <div id="legal-loader"></div>
-#<script>(function(){if(prompt("Введите пароль для доступа:")!=="dmamax"){alert("Доступ запрещен.");window.close();document.documentElement.innerHTML="";window.location.href="about:blank";}})();</script>
+<script>(function(){if(prompt("Введите пароль для доступа:")!=="dmamax"){alert("Доступ запрещен.");window.close();document.documentElement.innerHTML="";window.location.href="about:blank";}})();</script>
 
 <script>
   (function() {

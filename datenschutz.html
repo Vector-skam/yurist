@@ -2,36 +2,48 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Datenschutzerklärung - <span id="project-title"></span></title>
-    <style>body{font-family:Arial,sans-serif;margin:40px;line-height:1.6;}</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutzerklärung - Maksym Didukh Projects</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; color: #333; max-width: 800px; }
+        h1, h2 { color: #000; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .info-box { background: #f4f4f4; padding: 15px; border-radius: 5px; border-left: 5px solid #58a6ff; margin: 20px 0; }
+    </style>
 </head>
 <body>
     <h1>Datenschutzerklärung</h1>
     <p>Stand: April 2026</p>
 
-    <p>Diese Website verarbeitet <strong>keine personenbezogenen Daten</strong> aktiv. Keine Formulare, kein Login, kein Tracking.</p>
+    <h2>1. Speicherung von nutzergenerierten Inhalten</h2>
+    <div class="info-box">
+        <strong>Interaktive Funktionen (DrawingTogether, MultiChat etc.):</strong><br>
+        In unseren interaktiven Anwendungen werden die von Ihnen erstellten Inhalte (wie Zeichnungen, Chat-Nachrichten und gewählte Benutzernamen) in einer Echtzeit-Datenbank verarbeitet и gespeichert. Diese Daten bleiben auf der Plattform gespeichert, um sie anderen Nutzern anzuzeigen. Mit der Nutzung dieser Funktionen erklären Sie sich mit dieser dauerhaften oder temporären Speicherung einverstanden.
+    </div>
 
-    <p>
-        <strong>Technische Daten (Netlify):</strong><br>
-        Beim Aufruf speichert der Hosting-Dienst automatisch Logfiles (IP, Browser, Zeitpunkt). Diese Daten dienen nur der Sicherheit und Fehlerbehebung und werden schnell gelöscht.
-    </p>
+    <h2>2. Hosting durch Netlify</h2>
+    <p>Diese Website wird bei Netlify (Netlify Inc., USA) gehostet. Beim Aufruf der Seite speichert der Hosting-Dienst automatisch Logfiles (IP-Adresse, Browsertyp, Zeitpunkt des Zugriffs). Dies ist technisch notwendig, um die Sicherheit und Stabilität der Webseite zu gewährleisten.</p>
 
-    <p>
-        <strong>Cookies & Speicher:</strong><br>
-        Keine Cookies für Tracking. Nur lokale technische Daten im Browser für das Spiel (z.B. Highscore).
-    </p>
+    <h2>3. Cookies и LocalStorage</h2>
+    <p>Wir verwenden keine Tracking-Cookies zur Analyse Ihres Verhaltens. Wir nutzen lediglich den lokalen Speicher Ihres Browsers (LocalStorage), um technische Daten wie Spielstände (Highscores) oder App-Einstellungen direkt auf Ihrem Gerät zu speichern.</p>
 
-    <p>
-        <strong>Deine Rechte (DSGVO):</strong><br>
-        Auskunft, Berichtigung, Löschung jederzeit möglich. Schreib einfach an didukh.maxim@gmail.com.
-    </p>
+    <h2>4. Ihre Rechte (DSGVO)</h2>
+    <p>Sie haben das Recht auf Auskunft, Berichtigung oder Löschung Ihrer Daten. Da wir keine Benutzerkonten mit Passwörtern führen, kontaktieren Sie uns bitte per E-Mail, falls Sie die Löschung eines von Ihnen erstellten Inhalts (z.B. eine Zeichnung oder Nachricht) wünschen.</p>
+    <p><strong>Verantwortlicher:</strong> Maksym Didukh (Kontaktdaten siehe Impressum).</p>
 
-    <p>Verantwortlicher: Maksym Didukh, Johannes-Rieden-Strasse 1, 56599 Leutesdorf</p>
+
 
     <script>
         const base = window.location.origin;
-        const title = document.title.trim() || "VECTOR-SKAM Project";
+        const title = document.title.trim() || "Maksym Didukh Project";
         document.getElementById('project-title').textContent = title;
     </script>
 </body>
+    <footer style="text-align: center; padding: 15px; font-family: Arial, sans-serif; font-size: 11px; color: #777; border-top: 1px solid #eee; margin-top: 20px;">
+    <span>&copy; 2026 Maksym Didukh</span>
+    <span style="margin: 0 10px;">|</span>
+    <a href="https://wwwwebs.netlify.app/Impressum.html" target="_blank" style="color: #0066cc; text-decoration: none;">Impressum</a>
+    <span style="margin: 0 10px;">|</span>
+    <a href="https://wwwwebs.netlify.app/Datenschutzerklärung.html" target="_blank" style="color: #0066cc; text-decoration: none;">Datenschutz</a>
+    </footer>
+    
 </html>

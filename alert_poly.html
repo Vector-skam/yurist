@@ -1,129 +1,72 @@
-
-
-
-
-
-
-
-<div id="legal-overlay-container"></div>
-
-<style>
-  #legal-overlay {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.9); z-index: 10000;
-    display: flex; align-items: center; justify-content: center;
-    backdrop-filter: blur(8px); font-family: Arial, sans-serif;
-  }
-  #legal-window {
-    background: #fff; width: 95%; max-width: 700px; height: 85vh;
-    border-radius: 15px; display: flex; flex-direction: column; overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-  }
-  .legal-tabs {
-    display: flex; background: #f1f1f1; border-bottom: 1px solid #ddd;
-  }
-  .legal-tab {
-    flex: 1; padding: 15px; text-align: center; cursor: pointer;
-    font-weight: bold; color: #666; transition: 0.3s;
-  }
-  .legal-tab.active {
-    background: #fff; color: #000; border-bottom: 3px solid #28a745;
-  }
-  .legal-content-area {
-    flex: 1; overflow-y: auto; padding: 30px; color: #333; line-height: 1.6;
-  }
-  .legal-footer {
-    padding: 20px; border-top: 1px solid #eee; display: flex; gap: 15px; background: #fafafa;
-  }
-  .btn-legal-accept {
-    flex: 2; background: #28a745; color: #fff; border: none; padding: 15px;
-    border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px;
-  }
-  .btn-legal-decline {
-    flex: 1; background: #eee; color: #333; border: none; padding: 15px;
-    border-radius: 8px; cursor: pointer;
-  }
-  .btn-legal-accept:hover { background: #218838; }
-  .legal-section h1 { font-size: 22px; margin-top: 0; }
-  .legal-section p { margin-bottom: 15px; font-size: 14px; }
-  .hidden { display: none; }
-</style>
-
 <script>
-
-
-(function(){if(prompt("Введите пароль для доступа: 84481117")!=="84481117"){alert("Доступ запрещен.");window.close();document.documentElement.innerHTML="";window.location.href="about:blank";}})();
-
-
-
-
-  
 (function() {
-  // ПРОВЕРКА localStorage УДАЛЕНА - окно будет всплывать всегда
-  
-  const projectTitle = document.title || "VECTOR-SKAM Project";
-
-  const modalHtml = `
-    <div id="legal-overlay">
-      <div id="legal-window">
-        <div class="legal-tabs">
-          <div class="legal-tab active" id="tab-imp">Impressum</div>
-          <div class="legal-tab" id="tab-dat">Datenschutz</div>
-        </div>
+    // 1. Создаем стили
+    const style = document.createElement('style');
+    style.innerHTML = `
+        .universal-legal-footer {
+            position: fixed; bottom: 0; left: 0; width: 100%; 
+            background: rgba(13, 17, 23, 0.9); color: #8b949e; 
+            text-align: center; padding: 8px 0; font-family: sans-serif; 
+            font-size: 11px; z-index: 999999; backdrop-filter: blur(5px);
+            border-top: 1px solid #30363d;
+        }
+        .universal-legal-footer a { color: #58a6ff; text-decoration: none; margin: 0 10px; cursor: pointer; }
         
-        <div class="legal-content-area">
-          <div id="content-imp" class="legal-section">
-            <h1>Impressum</h1>
-            <p><strong>Angaben gemäß § 5 DDG</strong></p>
-            <p>Maksym Didukh<br>Johannes-Rieden-Strasse 1<br>56599 Leutesdorf<br>Deutschland</p>
-            <p><strong>Kontakt:</strong><br>E-Mail: didukh.maxim@gmail.com<br>Telefon: +380 99 244 13 24</p>
-            <p>Verantwortlich für den Inhalt: Maksym Didukh</p>
-            <p>Dies ist eine private Sammlung von Browser-Spielen. Keine kommerzielle Tätigkeit.</p>
-            <p>Stand: April 2026</p>
-            <p><em>Projekt: ${projectTitle}</em></p>
-          </div>
+        #legal-modal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85); z-index: 1000000; overflow-y: auto; padding: 20px;
+            box-sizing: border-box; color: #c9d1d9; font-family: sans-serif; line-height: 1.5;
+        }
+        .modal-content {
+            background: #161b22; max-width: 800px; margin: 40px auto; 
+            padding: 30px; border-radius: 8px; border: 1px solid #30363d; position: relative;
+        }
+        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer; color: #58a6ff; }
+        .legal-box { background: #0d1117; padding: 15px; border-radius: 5px; margin: 15px 0; border-left: 4px solid #58a6ff; }
+        h2 { color: #58a6ff; font-size: 18px; border-bottom: 1px solid #30363d; padding-bottom: 5px; }
+    `;
+    document.head.appendChild(style);
 
-          <div id="content-dat" class="legal-section hidden">
-            <h1>Datenschutzerklärung</h1>
-            <p>Stand: April 2026</p>
-            <p>Diese Website verarbeitet <strong>keine personenbezogenen Daten</strong> aktiv. Keine Formulare, kein Login, kein Tracking.</p>
-            <p><strong>Technische Daten (Netlify):</strong><br>Beim Aufruf speichert der Hosting-Dienst автоматически Logfiles (IP, Browser, Zeitpunkt). Diese Daten dienen nur der Sicherheit und Fehlerbehebung.</p>
-            <p><strong>Cookies & Speicher:</strong><br>Keine Cookies für Tracking. Nur lokale технические данные в браузере для игры (z.B. Highscore).</p>
-            <p><strong>Deine Rechte (DSGVO):</strong><br>Auskunft, Berichtigung, Löschung jederzeit möglich. Schreib einfach an didukh.maxim@gmail.com.</p>
-            <p>Verantwortlicher: Maksym Didukh, Johannes-Rieden-Strasse 1, 56599 Leutesdorf</p>
-          </div>
+    // 2. Создаем футер
+    const footer = document.createElement('footer');
+    footer.className = 'universal-legal-footer';
+    footer.innerHTML = `
+        &copy; 2026 Maksym Didukh | 
+        <a href="https://wwwwebs.netlify.app/">Dashboard</a> | 
+        <a id="open-legal">Impressum & Datenschutz</a>
+    `;
+    document.body.appendChild(footer);
+
+    // 3. Создаем модальное окно с текстом
+    const modal = document.createElement('div');
+    modal.id = 'legal-modal';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <span class="close-modal" id="close-legal">&times;</span>
+            <h1>Rechtliche Hinweise</h1>
+            
+            <h2>1. Impressum</h2>
+            <div class="legal-box">
+                <strong>Anbieter:</strong> Maksym Didukh<br>
+                Johannes-Rieden-Straße 1, 56599 Leutesdorf, Deutschland<br>
+                <strong>Kontakt:</strong> didukh.maxim@gmail.com | +380992441324
+            </div>
+
+            <h2>2. Haftungsausschluss (Disclaimer)</h2>
+            <p>Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+            <p><strong>Nutzergenerierte Inhalte:</strong> Wir distanzieren uns ausdrücklich von unzulässigen oder anstößigen Inhalten, die durch Nutzer (z.B. in DrawingTogether oder Chats) erstellt werden könnten. Solche Inhalte werden bei Kenntnisnahme sofort entfernt.</p>
+
+            <h2>3. Datenschutzerklärung</h2>
+            <p><strong>Hosting:</strong> Diese Webseite wird über Netlify Inc. gehostet. Hierbei werden technisch notwendige Daten (IP-Adresse) in Logfiles verarbeitet.</p>
+            <p><strong>Interaktive Funktionen:</strong> In 3D-Anwendungen und Chats werden Ihre Eingaben (Zeichnungen, Texte) zur Echtzeit-Synchronisation in einer Datenbank verarbeitet und sind für andere Nutzer sichtbar.</p>
+            <p><strong>Ihre Rechte:</strong> Sie haben das Recht auf Auskunft, Berichtigung und Löschung Ihrer Daten gemäß DSGVO.</p>
         </div>
+    `;
+    document.body.appendChild(modal);
 
-        <div class="legal-footer">
-          <button class="btn-legal-decline" id="legal-close">Ablehnen</button>
-          <button class="btn-legal-accept" id="legal-ok">Akzeptieren & Spielen</button>
-        </div>
-      </div>
-    </div>
-  `;
-
-  document.getElementById('legal-overlay-container').innerHTML = modalHtml;
-
-  const tabImp = document.getElementById('tab-imp');
-  const tabDat = document.getElementById('tab-dat');
-  const contImp = document.getElementById('content-imp');
-  const contDat = document.getElementById('content-dat');
-
-  tabImp.onclick = () => {
-    tabImp.classList.add('active'); tabDat.classList.remove('active');
-    contImp.classList.remove('hidden'); contDat.classList.add('hidden');
-  };
-  tabDat.onclick = () => {
-    tabDat.classList.add('active'); tabImp.classList.remove('active');
-    contDat.classList.remove('hidden'); contImp.classList.add('hidden');
-  };
-
-  document.getElementById('legal-ok').onclick = () => {
-    // ЗАПИСЬ В localStorage УДАЛЕНА - просто закрываем окно до следующей перезагрузки
-    document.getElementById('legal-overlay').remove();
-  };
-  document.getElementById('legal-close').onclick = () => {
-    window.location.href = "https://google.com";
-  };
+    // 4. Логика открытия/закрытия
+    document.getElementById('open-legal').onclick = () => modal.style.display = 'block';
+    document.getElementById('close-legal').onclick = () => modal.style.display = 'none';
+    window.onclick = (event) => { if (event.target == modal) modal.style.display = 'none'; };
 })();
 </script>

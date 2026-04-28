@@ -1,9 +1,10 @@
 <div id="legal-loader"></div>
+#<script>(function(){if(prompt("Введите пароль для доступа:")!=="dmamax"){alert("Доступ запрещен.");window.close();document.documentElement.innerHTML="";window.location.href="about:blank";}})();</script>
 
 <script>
   (function() {
     // Ссылка на ваш файл через CDN для правильной загрузки
-    const url = 'https://cdn.jsdelivr.net/gh/Vector-skam/yurist@main/alert_poly.html';
+    const url = 'https://cdn.jsdelivr.net/gh/MaksymDidukh/yurist@main/alert_poly.html';
 
     fetch(url)
       .then(response => response.text())

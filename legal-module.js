@@ -90,7 +90,7 @@
     const footer = document.createElement('footer');
     footer.className = 'dm-universal-footer';
     footer.innerHTML = `
-        &copy; 2026 Maksym Didukh | Contact E-mail didukh.maxim@gmail.com<span>${projectName}</span> | 
+        &copy; 2026 Maksym Didukh | Contact E-mail didukh.maxim@gmail.com <span>${projectName}</span> | 
         <a href="https://dmamax.netlify.app/impressum" target="_blank">Impressum</a> | 
         <a href="https://dmamax.netlify.app/datenschutz" target="_blank">Datenschutz</a>
     `;

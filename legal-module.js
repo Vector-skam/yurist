@@ -56,8 +56,7 @@
     modal.innerHTML = `
         <div class="dm-consent-box">
             <h2>Rechtliche Bestätigung</h2>
-            <p>Sie nutzen gerade das Projekt: <span class="dm-project-highlight">${projectName}</span></p>
-<br>
+            <p>Sie nutzen gerade das Projekt: <span class="dm-project-highlight">${projectName}</span></p
 <a href="https://dmamax.netlify.app/impressum" target="_blank">Impressum</a> | 
         <a href="https://dmamax.netlify.app/datenschutz" target="_blank">Datenschutz</a
         <br>

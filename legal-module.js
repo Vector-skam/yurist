@@ -1,6 +1,6 @@
 (function() {
     // 1. ОПРЕДЕЛЕНИЕ ПЕРЕМЕННЫХ
-    const projectName = document.title || "Maksym Didukh Project";
+    const projectName = document.title || "Maksym Didukh Project E-mail: didukh.maxim@gmail.com";
 
     // 2. ДОБАВЛЕНИЕ СТИЛЕЙ (Футер и Модальное окно)
     const style = document.createElement('style');

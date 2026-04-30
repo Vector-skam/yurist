@@ -127,4 +127,61 @@
     }, 500);
 
 })();
+                <p>
+                    <a href="https://dmamax.netlify.app/impressum" target="_blank" style="color:#58a6ff; text-decoration:underline;">Impressum</a> | 
+                    <a href="https://dmamax.netlify.app/datenschutz" target="_blank" style="color:#58a6ff; text-decoration:underline;">Datenschutz</a>
+                </p>
+                <div style="text-align: left; background: #0d1117; padding: 20px; border-radius: 8px; border-left: 4px solid #58a6ff; margin: 15px 0;">
+                    <p style="font-size: 12px !important; margin: 0 !important;">
+                        • <b>Inhalte:</b> Daten werden dauerhaft gespeichert и öffentlich sichtbar.<br><br>
+                        • <b>Haftung:</b> iFrame Inhalte (auch 18+) liegen nicht в Verantwortung des Betreibers.<br><br>
+                        • <b>Verbot:</b> Rechtswidrige Inhalte sind streng untersagt.<br><br>
+                        • <b>Datenschutz:</b> Sie akzeptieren Cookies и LocalStorage.
+                    </p>
+                </div>
+                <p class="dm-warning-red">Akzeptieren Sie diese Bedingungen für den Zugriff?</p>
+                <div class="dm-btn-group">
+                    <button class="dm-btn" id="accept-dm-legal">Ja, ich akzeptiere</button>
+                    <button class="dm-btn dm-btn-secondary" onclick="window.location.href='https://google.com'">Nein, verlassen</button>
+                </div>
+            </div>`;
+        
+        document.documentElement.appendChild(modal);
+        document.documentElement.classList.add('dm-lock-page');
+
+        document.getElementById('accept-dm-legal').onclick = function() {
+            modal.remove();
+            document.documentElement.classList.remove('dm-lock-page');
+            forceShowFooter();
+        };
+    }
+
+    // 4. ФУНКЦИЯ ФУТЕРА
+    function forceShowFooter() {
+        if (document.querySelector('.dm-universal-footer')) return;
+        const footer = document.createElement('div');
+        footer.className = 'dm-universal-footer';
+        footer.innerHTML = `
+            &copy; 2026 Maksym Didukh | ${contactEmail} | <b>${projectName}</b> | 
+            <a href="https://dmamax.netlify.app/impressum" target="_blank">Impressum</a> | 
+            <a href="https://dmamax.netlify.app/datenschutz" target="_blank">Datenschutz</a>
+        `;
+        document.documentElement.appendChild(footer);
+    }
+
+    // 5. МОНИТОРИНГ (Защита от удаления и перезапуск при входе)
+    forceShowLegal();
+
+    setInterval(() => {
+        // Если нет модалки И страница заблокирована (нажатие не произошло) — вернуть модалку
+        if (!document.getElementById('dm-legal-consent') && document.documentElement.classList.contains('dm-lock-page')) {
+            forceShowLegal();
+        }
+        // Всегда проверять наличие футера, если окно уже закрыто
+        if (!document.getElementById('dm-legal-consent')) {
+            forceShowFooter();
+        }
+    }, 500);
+
+})();
             

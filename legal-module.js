@@ -37,6 +37,7 @@
         .dm-btn-group { display: flex; gap: 15px; justify-content: center; margin-top: 20px; }
         
         .dm-btn {
+            z-index: 99999;
             background: #238636; color: white; border: none; padding: 14px 30px;
             border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 14px;
             transition: background 0.2s, transform 0.1s;

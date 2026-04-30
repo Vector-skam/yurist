@@ -109,7 +109,7 @@
         footer.className = 'dm-universal-footer';
         footer.innerHTML = `
             &copy; 2026 Maksym Didukh | Contact: ${contactEmail} | Project: <b>${projectName}</b> | 
-            <a href="https://dmamax.netlify.app/impressum" target="_blank">Impressum</a> | 
+            <a href="https://dmamax.netlify.app/impressum" style="z-index:999999;" target="_blank">Impressum</a> | 
             <a href="https://dmamax.netlify.app/datenschutz" target="_blank">Datenschutz</a>
         `;
         document.documentElement.appendChild(footer);

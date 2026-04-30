@@ -120,7 +120,7 @@
         } else if (modal.getAttribute('data-accepted') !== 'true') {
             document.documentElement.classList.add('dm-lock-screen');
         }
-    }, 500); // Проверка каждые 0.5 сек
+    }, 60000); // Проверка каждые 0.5 сек
 
     mountLegal();
 })();

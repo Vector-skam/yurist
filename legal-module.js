@@ -82,33 +82,43 @@
         const modal = document.createElement('div');
         modal.id = 'dm-legal-consent';
         modal.innerHTML = `
-            <div class="dm-consent-box">
-                <h2 style="color:#58a6ff !important; margin:0 0 10px 0 !important; font-size:22px !important; display:block !important; font-weight:bold !important;">Rechtliche Bestätigung</h2>
-                <p style="color:#c9d1d9 !important; display:block !important; margin-bottom:15px !important; font-size:14px !important;">
-                    Sie nutzen gerade das Projekt: <span style="color:#238636 !important; font-weight:bold !important;">${projectName}</span>
-                </p>
-                
-                <div style="margin-bottom:20px !important; display:block !important;">
-                    <a href="https://dmamax.netlify.app/impressum" target="_blank" style="color:#58a6ff !important; text-decoration:underline !important; font-size:13px !important;">Impressum</a> | 
-                    <a href="https://dmamax.netlify.app/datenschutz" target="_blank" style="color:#58a6ff !important; text-decoration:underline !important; font-size:13px !important;">Datenschutz</a>
-                </div>
+           <div class="dm-consent-box">
+    <h2 style="color:#58a6ff !important; margin:0 0 10px 0 !important; font-size:22px !important; font-weight:bold !important;">
+        Rechtliche Bestätigung
+    </h2>
 
-                <div style="text-align:left !important; background:#0d1117 !important; padding:15px !important; border-radius:8px !important; border-left:4px solid #58a6ff !important; font-size:12.5px !important; line-height:1.6 !important; color:#c9d1d9 !important; margin-bottom:20px !important;">
-                    • <b>Inhalte:</b> Erstellte Zeichnungen, Nachrichten и Daten werden dauerhaft gespeichert и sind для другие Nutzer öffentlich sichtbar.<br><br>
-                    • <b>Haftung (iFrame):</b> Dieses Projekt kann externe Webseiten (auch unzensierte/18+) via iFrame laden. Der Betreiber übernimmt <u>keine Verantwortung</u> für diese fremden Inhalte.<br><br>
-                    • <b>Verbot:</b> Das Teilen von rechtswidrigen, gewaltverherrlichenden или beleidigenden Inhalten ist streng untersagt.<br><br>
-                    • <b>Datenschutz:</b> Sie akzeptieren die Speicherung von technischen Logs и Nutzung von LocalStorage.
-                </div>
+    <p style="color:#c9d1d9 !important; margin-bottom:15px !important; font-size:14px !important;">
+        Sie nutzen gerade das Projekt: <span style="color:#238636 !important; font-weight:bold !important;">${projectName}</span>
+    </p>
 
-                <p style="color:#f85149 !important; font-weight:bold !important; margin:0 0 15px 0 !important; display:block !important; font-size:14px !important;">
-                    Akzeptieren Sie diese Bedingungen für <b>${projectName}</b>?
-                </p>
+    <div style="margin-bottom:20px !important; font-size:13px !important;">
+        <a href="https://dmamax.netlify.app/impressum" target="_blank" style="color:#58a6ff !important;">Impressum</a> |
+        <a href="https://dmamax.netlify.app/datenschutz" target="_blank" style="color:#58a6ff !important;">Datenschutz</a>
+    </div>
 
-                <div class="dm-btn-group">
-                    <button class="dm-btn" id="dm-ok-btn">Ja, ich akzeptiere</button>
-                    <button class="dm-btn dm-btn-secondary" onclick="window.location.href='https://google.com'">Nein, verlassen</button>
-                </div>
-            </div>`;
+    <div style="text-align:left !important; background:#0d1117 !important; padding:15px !important; border-radius:8px !important; border-left:4px solid #58a6ff !important; font-size:12.5px !important; line-height:1.6 !important; color:#c9d1d9 !important; margin-bottom:20px !important;">
+
+        • <b>Inhalte:</b> Nutzer können Inhalte (Texte, Zeichnungen, Nachrichten) erstellen. Diese können im Rahmen der Funktionalität gespeichert werden.<br><br>
+
+        • <b>Externe Inhalte:</b> Einige Projekte können externe Webseiten oder Dienste einbinden. Für deren Inhalte sind die jeweiligen Betreiber verantwortlich.<br><br>
+
+        • <b>Verhaltensregeln:</b> Die Nutzung für rechtswidrige, beleidigende oder schädliche Inhalte ist untersagt.<br><br>
+
+        • <b>Datenverarbeitung:</b> Es können technische Daten (z. B. IP-Adresse, Browser, Zeitstempel) sowie LocalStorage-Daten zur Funktion gespeichert werden.
+
+    </div>
+
+    <p style="color:#f85149 !important; font-weight:bold !important; margin:0 0 15px 0 !important; font-size:14px !important;">
+        Stimmen Sie den Bedingungen für <b>${projectName}</b> zu?
+    </p>
+
+    <div class="dm-btn-group">
+        <button class="dm-btn" id="dm-ok-btn">Akzeptieren</button>
+        <button class="dm-btn dm-btn-secondary" onclick="window.location.href='https://google.com'">
+            Ablehnen
+        </button>
+    </div>
+</div>`;
         
         document.documentElement.appendChild(modal);
 
